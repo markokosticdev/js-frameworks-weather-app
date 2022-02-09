@@ -1,0 +1,110 @@
+{
+  "root": "apps/weather-vue-app",
+  "sourceRoot": "apps/weather-vue-app/src",
+  "projectType": "application",
+  "prefix": "js-frameworks-weather-app",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/weather-vue-app",
+        "index": "apps/weather-vue-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/weather-vue-app/src/main.ts",
+        "polyfills": "apps/weather-vue-app/src/polyfills.ts",
+        "tsConfig": "apps/weather-vue-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/weather-vue-app/src/favicon.ico",
+          "apps/weather-vue-app/src/assets"
+        ],
+        "styles": [
+          "apps/weather-vue-app/src/styles.scss"
+        ],
+        "scripts": [],
+        "webpackConfig": "apps/weather-vue-app/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/weather-vue-app/src/environments/environment.ts",
+              "with": "apps/weather-vue-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyScript",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "optimization": true,
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "weather-vue-app:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "weather-vue-app:build:production",
+          "hmr": false
+        },
+        "development": {
+          "browserTarget": "weather-vue-app:build:development"
+        },
+        "defaultConfiguration": "development"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/weather-vue-app/src/**/*.{js,ts,vue}",
+          "apps/weather-vue-app/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/weather-vue-app"
+      ],
+      "options": {
+        "jestConfig": "apps/weather-vue-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

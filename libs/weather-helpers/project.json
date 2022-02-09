@@ -1,0 +1,29 @@
+{
+  "root": "libs/weather-helpers",
+  "sourceRoot": "libs/weather-helpers/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "libs/weather-helpers/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/weather-helpers"
+      ],
+      "options": {
+        "jestConfig": "libs/weather-helpers/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

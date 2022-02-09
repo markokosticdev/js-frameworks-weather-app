@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "plugin:@nrwl/nx/react",
+    "prettier",
+    "../../.eslintrc.json"
+  ],
+  "ignorePatterns": [
+    "!**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.js",
+        "*.jsx",
+        "*.ts",
+        "*.tsx"
+      ],
+      "rules": {}
+    }
+  ]
+}

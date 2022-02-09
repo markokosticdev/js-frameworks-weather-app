@@ -1,0 +1,11 @@
+{
+  "presets": [
+    [
+      "@vue/cli-plugin-babel/preset",
+      {
+        "runtime": "automatic"
+      }
+    ]
+  ],
+  "plugins": []
+}

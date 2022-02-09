@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@js-frameworks-weather-app/weather-helpers": [
+        "libs/weather-helpers/src/index.ts"
+      ],
+      "@js-frameworks-weather-app/weather-services": [
+        "libs/weather-services/src/index.ts"
+      ],
+      "@js-frameworks-weather-app/weather-types": [
+        "libs/weather-types/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

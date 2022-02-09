@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "projects": {
+    "weather-angular-app": "apps/weather-angular-app",
+    "weather-angular-app-e2e": "apps/weather-angular-app-e2e",
+    "weather-helpers": "libs/weather-helpers",
+    "weather-react-app": "apps/weather-react-app",
+    "weather-react-app-e2e": "apps/weather-react-app-e2e",
+    "weather-services": "libs/weather-services",
+    "weather-types": "libs/weather-types",
+    "weather-vue-app": "apps/weather-vue-app",
+    "weather-vue-app-e2e": "apps/weather-vue-app-e2e"
+  }
+}

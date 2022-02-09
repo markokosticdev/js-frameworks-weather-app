@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "plugin:vue/vue3-essential",
+    "@vue/typescript/recommended",
+    "prettier",
+    "../../.eslintrc.json"
+  ],
+  "ignorePatterns": [
+    "!**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.js",
+        "*.jsx",
+        "*.ts",
+        "*.tsx",
+        "*.vue"
+      ],
+      "rules": {}
+    }
+  ]
+}

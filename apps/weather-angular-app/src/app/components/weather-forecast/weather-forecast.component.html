@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col">
+    <weather-forecast-header (onSubmit)="onSubmit($event)"></weather-forecast-header>
+  </div>
+</div>
+<div class="row mt-3" *ngIf="data$ && cityForecast">
+  <div class="col">
+    <weather-forecast-body [data$]="data$" [cityForecast]="cityForecast"></weather-forecast-body>
+  </div>
+</div>
+

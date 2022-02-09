@@ -1,0 +1,54 @@
+<div class="card">
+  <ng-container *ngIf="data$ | withStatus | async as data">
+    <div class="card-header bg-white" *ngIf="data.value && cityForecast">
+      <h4 class="mt-2">
+        {{ cityForecast.city | titlecase }} {{ cityForecast.forecastType | titlecase }} Forecast
+        <ng-container *ngIf="cityForecast.forecastType === 'hourly'">for {{ today | date }}</ng-container>
+      </h4>
+    </div>
+
+    <div class="card-body">
+      <div class="row my-n3">
+        <ng-template [ngIf]="data.value && cityForecast">
+          <ng-container *ngIf="data.value | filterForecast:cityForecast.forecastType as filterdData">
+            <ng-template [ngIf]="filterdData.hourly">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2" *ngFor="let hour of filterdData.hourly">
+                <weather-forecast-tile
+                  [tile]="createForecastTile(hour, cityForecast.forecastType)"></weather-forecast-tile>
+              </div>
+            </ng-template>
+            <ng-template [ngIf]="filterdData.daily">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 p-2" *ngFor="let day of filterdData.daily">
+                <weather-forecast-tile
+                  [tile]="createForecastTile(day, cityForecast.forecastType)"></weather-forecast-tile>
+              </div>
+            </ng-template>
+          </ng-container>
+        </ng-template>
+        <ng-template [ngIf]="!data.loading && !data.value">
+          <div class="col">
+            <h4 class=" text-center">
+              Not Found
+            </h4>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="data.error">
+          <div class="col">
+            <h4 class=" text-center">
+              Error
+            </h4>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="data.loading && !data.error">
+          <div class="col">
+            <h4 class=" text-center">
+              Loading...
+            </h4>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
